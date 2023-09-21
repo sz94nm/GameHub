@@ -20,7 +20,6 @@ function App() {
       </Show>
 
       <GridItem area="main" bg="#679289">
-        Main
         <GameGrid />
       </GridItem>
     </Grid>
