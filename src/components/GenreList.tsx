@@ -15,8 +15,9 @@ import {
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { genres, error, isLoading } = useGenres();
 
   if (isLoading)
@@ -40,7 +41,12 @@ const GenreList = ({ onSelectGenre }: Props) => {
                 boxSize={8}
                 overflow={"hidden"}
               />
-              <Text fontSize={"large"}>{genre.name}</Text>
+              <Text
+                fontWeight={selectedGenre?.id === genre.id ? " bold" : "normal"}
+                fontSize={"large"}
+              >
+                {genre.name}
+              </Text>
             </HStack>
           </Button>
         </ListItem>
