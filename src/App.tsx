@@ -6,12 +6,14 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
+import SortSelector from "./components/SortSelector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
     null
   );
+  const [selectedSort, setSelectedSort] = useState<string | null>(null);
 
   return (
     <Grid
@@ -41,9 +43,14 @@ function App() {
           selectedPlatform={selectedPlatform}
           onSelectPlatform={(platform) => setSelectedPlatform(platform)}
         />
+        <SortSelector
+          selectedSort={selectedSort}
+          onSelectSort={(sortBy) => setSelectedSort(sortBy)}
+        />
         <GameGrid
           selectedGenre={selectedGenre}
           selectedPlatform={selectedPlatform}
+          selectedSort={selectedSort}
         />
       </GridItem>
     </Grid>
