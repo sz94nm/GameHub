@@ -7,7 +7,7 @@ export interface Genre {
   name: string;
   slug: string;
   games_count: number;
-  background_image: string;
+  image_background: string;
 }
 interface fetchGenresResponse {
   count: number;
