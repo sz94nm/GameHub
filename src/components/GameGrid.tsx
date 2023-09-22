@@ -9,13 +9,20 @@ interface Props {
   selectedGenre: Genre | null;
   selectedPlatform: Platform | null;
   selectedSort: string | null;
+  searchText: string | null;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform, selectedSort }: Props) => {
+const GameGrid = ({
+  selectedGenre,
+  selectedPlatform,
+  selectedSort,
+  searchText,
+}: Props) => {
   const { games, error, isLoading } = useGames(
     selectedGenre,
     selectedPlatform,
-    selectedSort
+    selectedSort,
+    searchText
   );
   const cardSkeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (

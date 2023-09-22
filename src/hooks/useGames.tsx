@@ -21,7 +21,8 @@ interface fetchGamesResponse {
 const useGames = (
   selectedGenre: Genre | null,
   selectedPlatform: Platform | null,
-  selectedSort: string | null
+  selectedSort: string | null,
+  searchText: string | null
 ) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
@@ -37,6 +38,7 @@ const useGames = (
           genres: selectedGenre?.id,
           parent_platforms: selectedPlatform?.id,
           ordering: selectedSort,
+          search: searchText,
         },
       })
       .then((res) => {
@@ -50,7 +52,7 @@ const useGames = (
       });
 
     return () => controller.abort();
-  }, [selectedGenre, selectedPlatform, selectedSort]);
+  }, [selectedGenre, selectedPlatform, selectedSort, searchText]);
   return { games, error, isLoading };
 };
 export default useGames;
