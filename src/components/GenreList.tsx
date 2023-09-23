@@ -11,6 +11,7 @@ import {
   Box,
   Center,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 
 interface Props {
@@ -30,28 +31,36 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     return null;
   }
   return (
-    <List>
-      {genres.map((genre) => (
-        <ListItem margin={3} key={genre.id}>
-          <Button variant={"link"} onClick={() => onSelectGenre(genre)}>
-            <HStack>
-              <Image
-                borderRadius={"8px"}
-                src={genre.image_background}
-                boxSize={8}
-                overflow={"hidden"}
-              />
-              <Text
-                fontWeight={selectedGenre?.id === genre.id ? " bold" : "normal"}
-                fontSize={"large"}
-              >
-                {genre.name}
-              </Text>
-            </HStack>
-          </Button>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize={"2xl"} fontWeight={"normal"} margin={2}>
+        Genres
+      </Heading>
+      <List>
+        {genres.map((genre) => (
+          <ListItem margin={3} key={genre.id}>
+            <Button variant={"link"} onClick={() => onSelectGenre(genre)}>
+              <HStack>
+                <Image
+                  borderRadius={"8px"}
+                  objectFit={"cover"}
+                  src={genre.image_background}
+                  boxSize={8}
+                  overflow={"hidden"}
+                />
+                <Text
+                  fontWeight={
+                    selectedGenre?.id === genre.id ? " bold" : "normal"
+                  }
+                  fontSize={"large"}
+                >
+                  {genre.name}
+                </Text>
+              </HStack>
+            </Button>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 

@@ -35,8 +35,8 @@ const GameGrid = ({
           lg: 3,
           xl: 4,
         }}
-        spacing={"8px"}
-        padding={"8px"}
+        spacing={6}
+        padding={2}
       >
         {isLoading &&
           cardSkeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
