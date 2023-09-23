@@ -13,6 +13,7 @@ const GameHeading = ({ selectedGenre, selectedPlatform }: Props) => {
   if (selectedPlatform === undefined) {
     selectedPlatform = "";
   }
+
   const heading = `${selectedPlatform} ${selectedGenre} Games`;
   return (
     <Heading margin={1} as="h1">
