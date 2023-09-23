@@ -5,7 +5,14 @@ interface Props {
   selectedGenre: string | null | undefined;
   selectedPlatform: string | null | undefined;
 }
+
 const GameHeading = ({ selectedGenre, selectedPlatform }: Props) => {
+  if (selectedGenre === undefined) {
+    selectedGenre = "";
+  }
+  if (selectedPlatform === undefined) {
+    selectedPlatform = "";
+  }
   const heading = `${selectedPlatform} ${selectedGenre} Games`;
   return (
     <Heading margin={1} as="h1">
