@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -40,6 +41,10 @@ function App() {
       </Show>
 
       <GridItem area="main">
+        <GameHeading
+          selectedGenre={selectedGenre?.name}
+          selectedPlatform={selectedPlatform?.name}
+        />
         <PlatformSelector
           selectedPlatform={selectedPlatform}
           onSelectPlatform={(platform) => setSelectedPlatform(platform)}
